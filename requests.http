@@ -1,0 +1,8 @@
+### test
+get http://localhost:3000
+
+### Get all messages
+get http://localhost:3000/messages
+
+### get messages by id
+get http://localhost:3000/messages/1
