@@ -5,27 +5,30 @@ import { MessagesModule } from './messages/messages.module';
 import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true, //rendre les variables accessibles dans tous le projet
+      isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      inject: [ConfigModule],
+      inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: "mysql",
         host: configService.get<string>("DB_HOST"),
-        port: configService.get<string>("DB_PORT"),
+        port: parseInt(configService.get<string>("DB_PORT") || "3306"),
         username: configService.get<string>("DB_USER"),
         password: configService.get<string>("DB_PASSWORD"),
         database: configService.get<string>("DB_NAME"),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true, //A desactiver en prod
+        synchronize: true,
       }),
     }),
-    MessagesModule, UsersModule
+    MessagesModule,
+    UsersModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

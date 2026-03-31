@@ -6,3 +6,25 @@ get http://localhost:3000/messages
 
 ### get messages by id
 get http://localhost:3000/messages/1
+
+### get all user
+get http://localhost:3000/users
+
+### create user
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+"userName": "toto",
+"userPassword": "Passer1234",
+"userId": "1"
+}
+
+### login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+"userName": "toto",
+"userPassword": "Passer1234"
+}
