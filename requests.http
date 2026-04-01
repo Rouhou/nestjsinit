@@ -28,3 +28,7 @@ Content-Type: application/json
 "userName": "toto",
 "userPassword": "Passer1234"
 }
+
+### get profile
+POST http://localhost:3000/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNzc0OTY3Mjc2LCJleHAiOjE3NzYyNjMyNzZ9.7xIocJesX4XC8ii_LO-Vr_yszwbrKIx67U9dbc3XjZw

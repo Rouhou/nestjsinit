@@ -69,6 +69,13 @@ $ mau deploy
 ```
 
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+npm i -g @nestjs/cli
+npm install dotenv @nestjs/config
+npm install @nestjs/typeorm typeorm mysql2
+npm install bcryptjs
+npm install --save-dev @types/bcryptjs
+npm install class-validator class-transformer
+npm install @nestjs/jwt
 
 ## Resources
 
